@@ -85,7 +85,7 @@ class Simulator
   end
 
   def cmd_line_with_args( args )
-    cmd_sections = [@iphonesim_path] + args.map{ |x| "\"#{x.to_s}\"" } << '2>&1'
+    cmd_sections = [@iphonesim_path] + args.map{ |x| "\"#{x.to_s}\"" } << ' --tall --retina 2>&1'
     cmd_sections.join(' ')
   end
 
