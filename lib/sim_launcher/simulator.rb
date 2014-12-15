@@ -52,7 +52,10 @@ class Simulator
     end
     sdk_version ||= SdkDetector.new(self).latest_sdk_version
     args = ["--args"] + app_args.flatten if app_args
-    run_synchronous_command( :launch, app_path, '--sdk', sdk_version, '--family', device_family, '--exit', *args )
+    # SO Hacky....
+    # run_synchronous_command( :launch, app_path, '--sdk', sdk_version, '--family', device_family, '--exit', *args )
+    run_synchronous_command( :launch, app_path, '--devicetypeid', 'com.apple.CoreSimulator.SimDeviceType.iPhone-5s, 7.1', '--exit', *args )
+
   end
 
   def launch_ipad_app( app_path, sdk )
